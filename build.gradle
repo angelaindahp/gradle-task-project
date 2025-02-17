@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.angel'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.register('greetingTask') {
+    doLast {
+        String nama = project.hasProperty('nama') ? project.property('nama') : 'Gradle User'
+        println "Hello, angel! Welcome to Gradle World!"
+    }
+}
+
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'junit:junit:4.13'
+}
+
+test {
+    useJUnitPlatform()
+}
